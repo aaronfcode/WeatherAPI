@@ -1,0 +1,20 @@
+.container{
+    background-color: #D8D8D8;
+    padding: 25px;
+    position: relative;
+    top: 50px;
+}
+.card{
+    margin: 10px auto;
+    background-color: azure
+}
+
+
+
+.main-title{
+    text-align: center;
+}
+
+.btn{
+    margin-top: 5px;
+}
