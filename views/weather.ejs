@@ -8,7 +8,6 @@
     <title>Weather app!</title>
 </head>
 <body>
-
     <div class="container">
         <h1 class="main-title">Weather App!</h1>
         <div class="card" style="width: 22rem;">
@@ -23,12 +22,12 @@
         <div class="card" style="width: 22rem;">
             <div class="card-body">
                 <figure>
-                <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="">
+                    <img src="http://openweathermap.org/img/wn/<%= weather.icon %>.png" alt="">
                 </figure>
-                <h2>Name of City</h2> 
-                <span>Temperature: 30° F</span> 
+                <h2><%= weather.city %></h2> 
+                <span><%= weather.temperature %></span> 
                 <!-- change in ejs -->
-                <span>description...</span>
+                <span><%= weather.description %></span>
             </div>
         </div>
     </div>

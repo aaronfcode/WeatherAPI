@@ -4,17 +4,29 @@ const app = express();
 
 
 let city = 'Toronto'
-const url= `http://api.openweathermap.org/data/2.5/find?q=${city}&units=metric&appid=236bc05c1ab1689a1783fb805b8db2b8`
+const url= `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=236bc05c1ab1689a1783fb805b8db2b8`
 
 
-const getData = async url => {
-    try{
-        const response = await fetch(url)
-        const json = await response.json()
-        console.log(json)
-    }catch(error){
-        console.log(error)
+app.use(express.static('css'))
+
+app.get('/', (req,res) => {
+    fetch(url)
+    .then((res) => res.json())
+    .then((data)=> {
+        // console.log(data)
+      let weather = {
+        city: city,
+        temperature: data.main.temp,
+        description: data.weather[0].description,
+        icon: data.weather[0].icon
     }
-}
+    let weather_data = {weather : weather}
+    res.render('weather', weather_data)
+    })
+   
+    // console.log(getData(url))
+})
+app.set("view engine", 'ejs')
 
-getData(url);
+const port = process.env.PORT || 3000; // PORT is an environment variable that will be set by the process obj
+app.listen(port, () => {console.log(`Listening on ${port}...`)})
