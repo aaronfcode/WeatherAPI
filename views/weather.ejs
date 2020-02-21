@@ -12,22 +12,25 @@
         <h1 class="main-title">Weather App!</h1>
         <div class="card" style="width: 22rem;">
             <div class="card-body">
-              <form action="">
+              <form method="GET">
                   <label for="input-u">Enter City:</label>
-                  <input id="input-u" class="form-control" type="text" placeholder="">
+                  <input id="input-u" name="city_name"  class="form-control" type="text" placeholder="">
                   <button type="submit" class="btn btn-primary btn-block">Submit</button>
               </form>
             </div>
           </div>
         <div class="card" style="width: 22rem;">
-            <div class="card-body">
-                <figure>
+            <div class="card-body media-box">
+                <figure class="icon-fig">
                     <img src="http://openweathermap.org/img/wn/<%= weather.icon %>.png" alt="">
                 </figure>
-                <h2><%= weather.city %></h2> 
-                <span><%= weather.temperature %></span> 
-                <!-- change in ejs -->
-                <span><%= weather.description %></span>
+                <div class="info">
+                    <h2 class="city-name"><%= weather.city %></h2> 
+                    <h3 class="temp"><%= weather.temperature %><span>°C</span></h3> 
+                    <!-- change in ejs -->
+                    <p class="desc"><%= weather.description %></p>
+                </div>
+                
             </div>
         </div>
     </div>
